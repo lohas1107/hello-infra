@@ -1,0 +1,12 @@
+services:
+  workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: workspace
+    stdin_open: true
+    tty: true
+    ports:
+      - 3000:3000
+    volumes:
+      - ../../:/workspace
