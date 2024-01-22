@@ -2,7 +2,7 @@ WORKSPACE_SCRIPT = workspace/docker-compose.yml
 
 workspace:
 	docker-compose -f $(WORKSPACE_SCRIPT) up -d workspace
-	docker-compose -f $(WORKSPACE_SCRIPT) exec workspace bash
+	docker-compose -f $(WORKSPACE_SCRIPT) exec -w /workspace/$(filter-out $@,$(MAKECMDGOALS)) workspace bash
 
 exit:
 	docker rmi -f workspace
