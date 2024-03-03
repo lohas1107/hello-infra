@@ -1,4 +1,4 @@
-FROM ubuntu:latest AS base
+FROM ubuntu:22.04 AS base
 RUN apt update
 RUN apt install -y make
 RUN apt install -y curl
