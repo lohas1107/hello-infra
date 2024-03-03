@@ -10,5 +10,8 @@ RUN chmod 500 nsolid_setup_deb.sh
 RUN ./nsolid_setup_deb.sh 18
 RUN apt install -y nodejs
 
-FROM node AS workspace
+FROM node AS jvm
+RUN apt install -y openjdk-17-jdk
+
+FROM jvm AS workspace
 WORKDIR /workspace
