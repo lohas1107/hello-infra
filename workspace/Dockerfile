@@ -23,5 +23,9 @@ ENV PATH=${GRADLE_HOME}/bin:${PATH}
 # Gradle cache directory
 VOLUME GRADLE_CACHE
 
-FROM jvm AS workspace
+FROM jvm AS rust
+RUN apt install -y build-essential
+RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+
+FROM rust AS workspace
 WORKDIR /workspace
